@@ -78,9 +78,4 @@ describe 'PageAggregator' do
 		expect(page_aggregator.unique_views).to eq({ '/contact' => 1, '/help_page/1' => 1 })
 	end
 
-
-
-
-
-
 end
