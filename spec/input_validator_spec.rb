@@ -26,6 +26,20 @@ describe 'InputValidator' do
 		expect(input_validator.valid_page?(incorrect_page_two)).to be_falsey
 	end
 
+	it 'should check if the address is in a valid format' do
+		input_validator = InputValidator.new
+		correct_address = '126.318.035.038'
+		incorrect_address_one = '126318035038'
+		incorrect_address_two = '1260.3180.0350.0380'
+		incorrect_address_three = '12.31.03.03'
+		incorrect_address_four = '/contact'
+		expect(input_validator.valid_address?(correct_address)).to be_truthy
+		expect(input_validator.valid_address?(incorrect_address_one)).to be_falsey
+		expect(input_validator.valid_address?(incorrect_address_two)).to be_falsey
+		expect(input_validator.valid_address?(incorrect_address_three)).to be_falsey
+		expect(input_validator.valid_address?(incorrect_address_four)).to be_falsey
+	end
+
 
 
 end
