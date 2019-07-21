@@ -6,11 +6,8 @@ class InputValidator
 		@incorrectly_formatted_logs = []
 	end
 
-	def valid_page?(page)
-		page.match(/^\/[a-z]+_?[a-z]+(\/[1-9]+)?$/)
+	def valid_log?(log)
+		log.match(/^\/[a-z]+_?[a-z]+(\/[1-9]+)? [0-9][0-9][0-9](.[0-9][0-9][0-9]){3}$/)
 	end
 
-	def valid_address?(address)
-		address.match(/^[0-9][0-9][0-9](.[0-9][0-9][0-9]){3}$/)
-	end
 end
