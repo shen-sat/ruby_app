@@ -2,6 +2,12 @@ require_relative '../lib/input_validator'
 
 describe 'InputValidator' do
 
+	it 'should initialize with empty lists of correctly formatted and incorrect formatted logs' do
+		input_validator = InputValidator.new
+		expect(input_validator.correctly_formatted_logs).to eq([])
+		expect(input_validator.incorrectly_formatted_logs).to eq([])
+	end
+
 	it 'should check if page section is in correct format' do
 		input_validator = InputValidator.new
 		correct_page_one = '/contact'
@@ -26,7 +32,7 @@ describe 'InputValidator' do
 		expect(input_validator.valid_page?(incorrect_page_two)).to be_falsey
 	end
 
-	it 'should check if the address is in a valid format' do
+	it 'should check if the address is in a correct format' do
 		input_validator = InputValidator.new
 		correct_address = '126.318.035.038'
 		incorrect_address_one = '126318035038'
