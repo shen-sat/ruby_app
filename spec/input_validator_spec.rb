@@ -36,4 +36,20 @@ describe 'InputValidator' do
 		expect(input_validator.valid_log?(invalid_log_nine)).to be_falsey
 	end
 
+	it 'should save a correct log to the list of correctly formatted logs' do
+		input_validator = InputValidator.new
+		log = double('log')
+		allow(input_validator).to receive(:valid_log?).and_return(true)
+		input_validator.save_log_to_list(log)
+		expect(input_validator.correctly_formatted_logs).to eq([log])
+	end
+
+	it 'should save an incorrect log to the list of incorrectly formatted logs' do
+		input_validator = InputValidator.new
+		log = double('log')
+		allow(input_validator).to receive(:valid_log?).and_return(false)
+		input_validator.save_log_to_list(log)
+		expect(input_validator.incorrectly_formatted_logs).to eq([log])
+	end
+
 end
