@@ -22,4 +22,15 @@ class App
 	def sort_pages(pages)
 		pages.sort_by { |page, no_of_views| no_of_views }.to_h
 	end
+
+	def display_results(total_page_views, unique_page_views)
+		puts "Total page views:"
+		total_page_views.each do |page, views|
+			puts "#{page} #{views} visits"
+		end
+		puts "Unique page views:"
+		unique_page_views.each do |page, views|
+			puts "#{page} #{views} unique views"
+		end
+	end
 end

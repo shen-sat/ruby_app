@@ -38,4 +38,12 @@ describe 'App' do
 		page_views = {'page_one' => 2, 'page_two' => 1, 'page_three' => 3}
 		expect(@app.sort_pages(page_views)).to eq({ 'page_three' => 3, 'page_one' => 2, 'page_two' => 1 })
 	end
+
+	it 'should display pages' do
+		total_page_views = { 'page_three' => 3, 'page_two' => 2 }
+		unique_page_views = { 'page_three' => 1, 'page_two' => 1 }
+		expect { @app.display_results(total_page_views, unique_page_views) }
+			.to output("Total page views:\npage_three 3 visits\npage_two 2 visits\nUnique page views:\npage_three 1 unique views\npage_two 1 unique views\n")
+			.to_stdout
+	end
 end
