@@ -28,4 +28,10 @@ describe 'App' do
 		@app.check_logs(file)
 	end
 
+	it 'should use page aggregator to aggregate logs' do
+		logs = double('logs')
+		expect(@page_aggregator).to receive(:aggregate).with(logs)
+		@app.aggregate_logs(logs)
+	end
+	
 end

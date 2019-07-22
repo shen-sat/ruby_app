@@ -15,5 +15,7 @@ class App
 		end
 	end
 
-	
+	def aggregate_logs(logs)
+		@page_aggregator.aggregate(logs)
+	end
 end
