@@ -1,4 +1,4 @@
-class App
+class Controller
 
 	def initialize(input_validator, page_aggregator)
 		@input_validator = input_validator
