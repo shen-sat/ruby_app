@@ -33,5 +33,9 @@ describe 'App' do
 		expect(@page_aggregator).to receive(:aggregate).with(logs)
 		@app.aggregate_logs(logs)
 	end
-	
+
+	it 'should sort pages by views in descending order' do
+		page_views = {'page_one' => 2, 'page_two' => 1, 'page_three' => 3}
+		expect(@app.sort_pages(page_views)).to eq({ 'page_three' => 3, 'page_one' => 2, 'page_two' => 1 })
+	end
 end

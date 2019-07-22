@@ -18,4 +18,8 @@ class App
 	def aggregate_logs(logs)
 		@page_aggregator.aggregate(logs)
 	end
+
+	def sort_pages(pages)
+		pages.sort_by { |page, no_of_views| no_of_views }.to_h
+	end
 end
