@@ -19,5 +19,13 @@ describe 'App' do
 		allow(File).to receive(:exists?).and_return(false)
 		expect { @app.check_file file }.to output("Please provide correct file\n").to_stdout
 	end
-	
+
+	it 'should use input validator to check logs format' do
+		file = double('file')
+		log = double('log')
+		allow(file).to receive(:each).and_yield(log)
+		expect(@input_validator).to receive(:save_log_to_list).with(log)
+		@app.check_logs(file)
+	end
+
 end

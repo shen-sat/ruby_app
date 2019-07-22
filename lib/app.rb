@@ -9,4 +9,11 @@ class App
 		puts "Please provide correct file" if file.nil? || !File.exists?(file)
 	end
 
+	def check_logs(file)
+		file.each do |log|
+			@input_validator.save_log_to_list(log)
+		end
+	end
+
+	
 end
