@@ -5,6 +5,18 @@ class App
 		@page_aggregator = page_aggregator
 	end
 
+	def run(file)
+		check_file(file)
+		check_logs(file)
+		correctly_formatted_logs = @input_validator.correctly_formatted_logs
+		aggregate_logs(correctly_formatted_logs)
+		total_views = @page_aggregator.total_views
+		unique_views = @page_aggregator.unique_views
+		total_views_sorted = sort_pages(total_views)
+		unique_views_sorted = sort_pages(unique_views)
+		display_results(total_views_sorted, unique_views_sorted)
+	end
+
 	def check_file(file)
 		puts "Please provide correct file" if file.nil? || !File.exists?(file)
 	end
