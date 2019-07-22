@@ -1,4 +1,4 @@
-class Controller
+class App
 
 	def initialize(input_validator, page_aggregator)
 		@input_validator = input_validator
@@ -22,7 +22,7 @@ class Controller
 	end
 
 	def check_logs(file)
-		file.each do |log|
+		File.open(file).each do |log|
 			@input_validator.save_log_to_list(log)
 		end
 	end
