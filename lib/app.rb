@@ -32,7 +32,7 @@ class App
 	end
 
 	def sort_pages(pages)
-		pages.sort_by { |page, no_of_views| no_of_views }.to_h
+		pages.sort_by { |page, no_of_views| no_of_views }.reverse.to_h
 	end
 
 	def display_results(total_page_views, unique_page_views)

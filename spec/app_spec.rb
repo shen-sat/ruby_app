@@ -38,7 +38,7 @@ describe 'App' do
 
 	it 'should sort pages by views in descending order' do
 		page_views = {'page_one' => 2, 'page_two' => 1, 'page_three' => 3}
-		expect(@app.sort_pages(page_views)).to eq({ 'page_three' => 3, 'page_one' => 2, 'page_two' => 1 })
+		expect(@app.sort_pages(page_views).to_a).to eq({ 'page_three' => 3, 'page_one' => 2, 'page_two' => 1 }.to_a)
 	end
 
 	it 'should display pages' do
