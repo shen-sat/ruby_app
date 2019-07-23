@@ -5,7 +5,6 @@ describe 'InputValidator' do
 	it 'should initialize with empty lists of correctly formatted and incorrect formatted logs' do
 		input_validator = InputValidator.new
 		expect(input_validator.correctly_formatted_logs).to eq([])
-		expect(input_validator.incorrectly_formatted_logs).to eq([])
 	end
 
 	it 'should check log is in correct format' do
@@ -42,14 +41,6 @@ describe 'InputValidator' do
 		allow(input_validator).to receive(:valid_log?).and_return(true)
 		input_validator.save_log_to_list(log)
 		expect(input_validator.correctly_formatted_logs).to eq([log])
-	end
-
-	it 'should save an incorrect log to the list of incorrectly formatted logs' do
-		input_validator = InputValidator.new
-		log = double('log')
-		allow(input_validator).to receive(:valid_log?).and_return(false)
-		input_validator.save_log_to_list(log)
-		expect(input_validator.incorrectly_formatted_logs).to eq([log])
 	end
 
 end
