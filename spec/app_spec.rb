@@ -22,8 +22,10 @@ describe 'App' do
 
 	it 'should use input validator to check logs format' do
 		file = double('file')
+		open_file = double('open_file')
 		log = double('log')
-		allow(file).to receive(:each).and_yield(log)
+		allow(File).to receive(:open).with(file) { open_file }
+		allow(open_file).to receive(:each).and_yield(log)
 		expect(@input_validator).to receive(:save_log_to_list).with(log)
 		@app.check_logs(file)
 	end
